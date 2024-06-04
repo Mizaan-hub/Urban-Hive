@@ -44,14 +44,13 @@ export const login = async (req, res) => {
         
         if (!isPasswordValid) return res.status(401).json({ message: "Invalid Credentials 🤬" })
 
-        // generate cookie token and send it to user
-
-        // res.setHeader("Set-Cookie", "test=" + "anyValue").json({ message : "Cookie Created 🍪"})
         const age  = 1000 * 60 * 60 * 24 * 7
 
         const token = jwt.sign({
             id: user.id,
         }, process.env.JWT_SECRET_KEY,{expiresIn: age})
+
+        const {password:userPassword, ...userInfo} = user
 
         res.cookie("token", token, {
             httpOnly: true,
@@ -59,9 +58,7 @@ export const login = async (req, res) => {
             maxAge : age
         }) 
         .status(200)
-        .json({
-            message: "Logged in successfully 🎉",
-        })
+        .json(userInfo)
 
     } 
     catch (error) {
