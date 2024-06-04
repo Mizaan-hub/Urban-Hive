@@ -47,12 +47,12 @@ export const login = async (req, res) => {
         // generate cookie token and send it to user
 
         // res.setHeader("Set-Cookie", "test=" + "anyValue").json({ message : "Cookie Created 🍪"})
+        const age  = 1000 * 60 * 60 * 24 * 7
 
         const token = jwt.sign({
             id: user.id,
-        }, process.env.JWT_SECRET_KEY)
+        }, process.env.JWT_SECRET_KEY,{expiresIn: age})
 
-        const age  = 1000 * 60 * 60 * 24 * 7
         res.cookie("token", token, {
             httpOnly: true,
             // secure :true
