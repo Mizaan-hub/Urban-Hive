@@ -15,3 +15,5 @@ model User {
   avatar    String?
   createdAT DateTime @default(now())
 }
+
+
