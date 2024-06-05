@@ -51,6 +51,8 @@ export const updateUser = async (req, res) => {
       }
     })
 
+    const {password:userPassword, ...rest} = updatedUser
+
     return res.status(200).json(updatedUser)
   } 
   catch (error) {
