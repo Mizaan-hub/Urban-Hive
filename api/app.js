@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoute)
 app.use('/api/test', testRoute)
-app.use('api/user', UserRoute)
+app.use('/api/users', UserRoute)
 
 app.listen(6969, () => {
     console.log("Server is running on port 6969");
