@@ -3,7 +3,11 @@ import jwt from "jsonwebtoken";
 
 export const getPosts = async (req, res) => {
   try {
-    const posts = await prisma.post.findMany();
+    const posts = await prisma.post.findMany({
+      include:{
+        postDetail:true
+      }
+    });
 
     res.status(200).json(posts);
   } 
@@ -84,6 +88,9 @@ export const deletePost = async (req, res) => {
 
     await prisma.post.delete({
       where: { id },
+      include: {
+        postDetail:true
+      }
     })
 
     res.status(200).json({message: "Post Deleted"})
