@@ -96,7 +96,9 @@ export const getPost = async (req, res) => {
         }
       });
     }
-    res.status(200).json({ ...post, isSaved: false });
+    else{
+      res.status(200).json({ ...post, isSaved: false });
+    }
 
   } 
   catch (error) {
