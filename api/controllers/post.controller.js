@@ -46,8 +46,58 @@ export const getPost = async (req, res) => {
         }
       }
     });
+  // TODO: safe path
+    // res.status(200).json(post);
 
-    res.status(200).json(post);
+    // TODO: initial approach
+    // let userId
+
+    // const token = req.cookies?.token
+
+    // if(!token){
+    //   userId = null
+    // }
+    // else{
+    //   jwt.verify(token, process.env.SECRET_KEY, async (error, payload) => {
+    //     if(error){
+    //       userId = null
+    //     }
+    //     else{
+    //       userId = payload.id
+    //     }
+    //   });
+    // }
+
+    // const saved = await prisma.savedPost.findUnique({
+    //   where:{
+    //     userId_postId:{
+    //       postId: id,
+    //       userId,
+    //     }
+    //   }
+    // })
+    // res.status(200).json({ ...post, isSaved : saved ? true : false})
+
+    // TODO: another approach
+    const token = req.cookies?.token;
+
+    if (token) {
+      jwt.verify(token, process.env.JWT_SECRET_KEY, async (error, payload) => {
+        if (!error) {
+          const saved = await prisma.savedPost.findUnique({
+            where: {
+              userId_postId: {
+                postId: id,
+                userId: payload.id,
+              },
+            },
+          });
+          res.status(200).json({ ...post, isSaved: saved ? true : false });
+        }
+      });
+    }
+    res.status(200).json({ ...post, isSaved: false });
+
   } 
   catch (error) {
     console.log(error);

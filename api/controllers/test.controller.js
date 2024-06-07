@@ -1,12 +1,11 @@
 import jwt from "jsonwebtoken";
 
-export const shouldBeLoggedIn = async (req, res, next) => {
+export const shouldBeLoggedIn = async (req, res) => {
   console.log(req.userId)
   res.status(200).json({ message: "You are Authenticated" });
-  next();
 };
 
-export const shouldBeAdmin = async (req, res, next) => {
+export const shouldBeAdmin = async (req, res) => {
   const token = req.cookies.token;
 
   if (!token) return res.status(401).json({ message: "Not Authenticated!" });
@@ -20,5 +19,4 @@ export const shouldBeAdmin = async (req, res, next) => {
 
   res.status(200).json({ message: "You are Authenticated" });
 
-  next();
 };
