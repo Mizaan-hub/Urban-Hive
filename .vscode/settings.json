@@ -9,7 +9,8 @@
     "possimus",
     "quaerat",
     "sunt",
-    "timeago"
+    "timeago",
+    "zustand"
   ],
   "editor.tokenColorCustomizations": {
     "comments": "",
