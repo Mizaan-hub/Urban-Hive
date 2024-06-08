@@ -8,6 +8,11 @@
     "mollitia",
     "possimus",
     "quaerat",
-    "sunt"
-  ]
+    "sunt",
+    "timeago"
+  ],
+  "editor.tokenColorCustomizations": {
+    "comments": "",
+    "textMateRules": []
+  }
 }
