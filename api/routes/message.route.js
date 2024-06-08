@@ -4,6 +4,6 @@ import { addMessage } from "../controllers/message.controller.js"
 
 const router = express.Router()
 
-router.post("/", verifyToken, addMessage)
+router.post("/:chatId", verifyToken, addMessage)
 
 export default router
