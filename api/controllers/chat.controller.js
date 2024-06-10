@@ -38,7 +38,7 @@ export const getChats =  async (req, res) => {
   } 
   catch (error) {
     console.log(error);
-    res.status.json(500)({message: "Failed to get Chats 😔"})
+    res.status(500).json({message: "Failed to get Chats 😔"})
   }
 }
 
@@ -67,7 +67,7 @@ export const getChat =  async (req, res) => {
       },
       data:{
         seenBy: {
-          set: [tokenUserId]
+          push: [tokenUserId]
         }
       }
     })
@@ -75,7 +75,7 @@ export const getChat =  async (req, res) => {
   } 
   catch (error) {
     console.log(error);
-    res.status.json(500)({message: "Failed to get Chats 😔"})
+    res.status(500).json({message: "Failed to get Chats 😔"})
   }
 }
 
@@ -91,7 +91,7 @@ export const addChat =  async (req, res) => {
   } 
   catch (error) {
     console.log(error);
-    res.status.json(500)({message: "Failed to Add Chat 😔"})
+    res.status(500).json({message: "Failed to Add Chat 😔"})
   }
 }
 

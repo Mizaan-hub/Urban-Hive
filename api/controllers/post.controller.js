@@ -30,18 +30,19 @@ export const getPosts = async (req, res) => {
   }
 };
 
-export const getPost = async (req, res) => {
+export const getPost = async (req, res, next) => {
   const id = req.params.id;
 
   try {
     const post = await prisma.post.findUnique({
-      where: { id },
+      where: { id,},
       include:{
         postDetail: true,
-        user: {
-          select: {
+        user:{
+          select:{
+            id: true,
             username: true,
-            avatar :true
+            avatar : true
           }
         }
       }
