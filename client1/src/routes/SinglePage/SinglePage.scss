@@ -1,0 +1,264 @@
+@import "../../responsive.scss";
+
+.SinglePage{
+    display: flex;
+    height: 100%;
+
+    @include tablets{
+        flex-direction: column;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+    }
+
+    .details{
+
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+
+        @include tablets{
+            flex: none;
+            height: max-content;
+        }
+
+        flex: 3;
+        height: 100%;
+
+        .wrapper{
+            padding-right: 20px;
+            padding-bottom: 20px;
+            
+            @include tablets{
+                padding-right: 0;
+            }
+
+            .info{
+                margin-top: 20px;
+
+                .top{
+                    display: flex;
+                    justify-content: space-between;
+                    .post{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+
+                        h1{
+                            font-weight: 400;
+                        }
+                        .address{
+                            display: flex;
+                            gap: 5px;
+                            align-items: center;
+                            font-size: 16px;
+                            color: #888;
+
+                            img{
+                                width: 14px;
+                                height: 14px;
+                            }
+                        }
+                        .price{
+                            padding: 5px;
+                            background-color: var(--color-price);
+                            max-width: max-content;
+                            border-radius: 5px;
+                            font-size: 20px;
+                            font-weight: 300;
+                        }
+                    }
+
+                    .user{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        gap: 20px;
+                        padding: 0px 50px;
+                        background-color:var(--color-template);
+                        border-radius: 20px;
+                        transition: var(--transition);
+
+                        img{
+                            width: 50px;
+                            height: 50px;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+
+                        &:hover{
+                            background-color: var(--color-price);
+                            scale: 1.05;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .bottom{
+                    margin-top: 20px;
+                    color: #555;
+                    // line-height: 20px;
+                }
+            }
+        }
+    }
+    
+    .features{
+
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+
+        @include tablets{
+            flex: none;
+            height: max-content;
+            padding-bottom: 20px;
+        }
+
+        flex: 2;
+        background-color: var(--color-right);
+        height: 100%;
+        padding-bottom: 50px;
+
+        .wrapper{
+            padding: 0px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            @include tablets{
+                margin-top: 20px;
+            }
+
+            img{
+                width: 24px;
+                height: 24px;
+            }
+
+            .title{
+                font-size: 18px;
+                font-weight: bold;
+                // margin-bottom: 10px;
+            }
+
+            .feature{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                img{
+                    background-color: var(--color-template);
+                    padding: 2px;
+                }
+
+                .featureText{
+                    span{
+                        font-weight: bold;
+                    }
+                    p{
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .sizes{
+                display: flex;
+                justify-content: space-between;
+
+                @include laptops{
+                    font-size: 12px;
+                }
+
+                @include tablets{
+                    font-size: 18px;
+                }
+
+                @include mobiles{
+                    font-size: 12px;
+                }
+
+                .size{
+                    background-color: white;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 5px;
+                    border-radius: 10px;
+                }
+            }
+
+            .listVertical{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                background-color: white;
+                padding: 20px 10px;
+                border-radius: 10px;
+            }
+
+            .listHorizontal{
+                display: flex;
+                justify-content: space-between;
+                background-color: white;
+                padding: 20px 10px;
+                border-radius: 10px;
+                
+                @include mobiles{
+                    flex-direction: column;
+                    gap: 20px;
+                    justify-content: flex-start;
+                }
+            }
+
+            .mapContainer{
+                width: 100%;
+                height: 200px;
+            }
+
+            .buttons{
+                display: flex;
+                justify-content: space-between;
+
+                @include mobiles{
+                    align-items: center;
+                    max-width: max-content;
+                    justify-content: center;
+                    align-self: center;
+                    gap: 10px;
+                    flex-direction: column;
+                }
+
+                button{
+                    padding: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    background-color: white;
+                    border: 1px solid var(--color-btn);
+                    border-radius: 5px;
+                    transition: var(--transition);
+
+                    img{
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    &:hover{
+                        cursor: pointer;
+                        scale: 1.05;
+                        border-radius: 10px;
+                        background-color: var(--color-btn);
+                        border: 1px solid white;
+                    }
+                }
+            }
+        }
+    }
+}

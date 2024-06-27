@@ -1,0 +1,168 @@
+@import "/src/responsive.scss";
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+
+    a{
+        transition: var(--transition);
+
+        @include mobiles{
+            display: none;
+        }
+
+        &:hover{
+            scale: 1.2;
+        }
+    }
+
+    .left{
+        flex:3;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        
+        .logo{
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            gap: 10px;
+
+            img{
+                width: 28px;
+            }
+
+            span{
+                @include tablets{
+                    display: none;
+                }
+
+                @include mobiles{
+                    display: initial;
+                }
+            }
+        }
+    }
+
+    .right{
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 100%;
+        background-color: var(--color-right);
+
+        @include tablets{
+            background-color: transparent;
+        }
+
+        a{
+            padding: 12px 24px;
+            margin: 20px;
+        }
+
+        .user{
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 20px;
+            }
+            
+
+            span{
+
+                &.username{
+                    @include tablets{
+                        display: none;
+                    }
+                }
+                
+                @include mobiles{
+                    display: none;
+                }
+            }
+
+            .profile{
+                padding: 12px 24px;
+                background-color: var(--color-btn);
+                cursor: pointer;
+                border: none;
+                position: relative;
+
+                .notifications{
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background-color: red;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+        .register{
+            background-color: var(--color-btn);
+        }
+
+        .menuIcon{
+            display: none;
+            z-index: 999;
+            
+            img{
+                width: 36px;
+                height: 36px;
+                cursor: pointer;
+            }
+
+            @include mobiles{
+                display: initial;
+            }
+        }
+
+            .menu{
+                display: none;
+            }
+
+        @include mobiles{
+            .menu{
+                position: absolute;
+                background-color: black;
+                color: white;
+                height: 100vh;
+                width: 50%;
+                top: 0;
+                right: -50%;
+                transition: var(--transition);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+    
+                &.active{
+                    right: 0;
+    
+                @include mobiles{
+                    a{
+                        display: initial;
+                    }
+                }
+                }
+            }
+        }
+    }
+}
+

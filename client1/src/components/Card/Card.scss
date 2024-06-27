@@ -1,0 +1,103 @@
+@import "../../responsive.scss";
+
+.Card{
+    display: flex;
+    gap: 20px;
+
+    .imgContainer{
+        flex: 2;
+        height: 200px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        @include tablets{
+            display: none;
+        }
+    }
+
+    .textContainer{
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 10px;
+
+        img{
+            width: 16px;
+            height: 16px;
+        }
+
+        .title{
+            font-size: 24px;
+            color: #444;
+            transition: var(--transition);
+
+            &:hover{
+                color: black;
+                scale: 1.05;
+            }
+        }
+
+        .address{
+            font-size: 14px;
+            display: flex;
+            text-align: center;
+            gap: 5px;
+            color: #888;
+        }
+
+        .price{
+            font-size: 20px;
+            font-weight: 300;
+            background-color: var(--color-price);
+            width: max-content;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .bottom{
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            .features{
+                display: flex;
+                gap: 20px;
+                font-size: 14px;
+
+                .feature{
+                    display: flex;
+                    gap: 5px;
+                    align-items: center;
+                    background-color: whitesmoke;
+                    padding: 5px;
+                    border-radius: 5px;
+                }
+            }
+
+            .icons{
+                display: flex;
+                gap: 20px;
+
+                .icon{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid #999;
+                    padding: 2px 5px;
+                    border-radius: 5px;
+                    cursor: pointer;
+
+                    &:hover{
+                        background-color: lightgray;
+                    }
+                }
+            }
+        }
+    }
+}

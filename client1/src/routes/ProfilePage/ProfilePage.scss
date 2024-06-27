@@ -1,0 +1,109 @@
+@import '../../responsive.scss';
+
+.ProfilePage{
+    display: flex;
+    height: 100%;
+
+    @include tablets{
+        flex-direction: column;
+        overflow: scroll;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+    }
+
+    .details{
+        flex: 3;
+        overflow-y: scroll;
+        padding-bottom: 50px;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+
+        @include tablets{
+            flex: none;
+            height: max-content;
+        }
+
+        .wrapper{
+            padding-right: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+
+            @include tablets{
+                padding-right: 0;
+            }
+
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                h1{
+                    font-weight: 300;
+                }
+
+                button{
+                    padding: 12px 24px;
+                    background-color: var(--color-btn);
+                    cursor: pointer;
+                    border: none;
+                }
+            }
+
+            .info{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                img{
+                    width: 50px;
+                    height: 50px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+
+                span{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                button{
+                    width: 100px;
+                    background-color: teal;
+                    border: none;
+                    padding: 10px 20px;
+                    color: white;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    .chatContainer{
+        flex: 2;
+        background-color: var(--color-right);
+        height: 100%;
+
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+
+        @include tablets{
+            flex: none;
+            height: max-content;
+        }
+
+        .wrapper{
+            padding: 0px 20px;
+            height: 100%;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-btn: #fece51;
+    --color-right: #fcf5f3;
+    --color-price: rgba(254,205,81,0.450);
+    --color-template: rgba(254,205,81,0.250);
+    --transition: all 400ms ease;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+body{
+    font-family: 'lato', sans-serif;
+    overflow: hidden;
+}

@@ -1,0 +1,73 @@
+@import "../../responsive.scss";
+
+.Filter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h1 {
+    font-weight: 300;
+    font-size: 24px;
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    label {
+      font-size: 10px;
+    }
+
+    input,
+    select {
+      width: 80px;
+      border: 1px solid #e0e0e0;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    select {
+      width: max-content;
+      option {
+        background-color: greenyellow;
+        color: black;
+      }
+    }
+  }
+
+  .top {
+    input {
+      width: 100%;
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    @include mobiles {
+      flex-direction: column;
+
+      input,
+      select {
+        width: 100%;
+      }
+    }
+
+    button {
+      width: 80px;
+      padding: 10px;
+      border: none;
+      background-color: var(--color-btn);
+      cursor: pointer;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}

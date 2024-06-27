@@ -1,0 +1,101 @@
+@import "/src/responsive.scss";
+
+.SearchBar {
+  .type {
+    button {
+      padding: 16px 32px;
+      border: 1px solid #999;
+      cursor: pointer;
+      background-color: white;
+      text-transform: capitalize;
+      border-bottom: none;
+
+      &.active {
+        background-color: black;
+        color: white;
+      }
+
+      &:first-child {
+        border-top-left-radius: 5px;
+        border-right: none;
+
+        @include mobiles {
+          border-bottom: 1px solid #999;
+        }
+      }
+
+      &:last-child {
+        border-top-right-radius: 5px;
+        border-left: none;
+
+        @include mobiles {
+          border-bottom: 1px solid #999;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #999;
+    height: 64px;
+    gap: 5px;
+
+    @include mobiles {
+      flex-direction: column;
+      border: none;
+    }
+
+    input {
+      padding: 0px 10px;
+      border: none;
+      width: 160px;
+
+      @include laptops {
+        width: 140px;
+      }
+
+      @include tablets {
+        width: 180px;
+      }
+
+      @include mobiles {
+        width: auto;
+        padding: 20px;
+        border: 1px solid #999;
+      }
+    }
+
+    a{
+      flex: 1;
+      background-color: var(--color-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button {
+        border: none;
+        cursor: pointer;
+        background-color: var(--color-btn);
+
+        @include mobiles {
+          padding: 10px;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+          margin: 0 12px;
+
+          @include laptops {
+            width: 18px;
+            height: 18px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
